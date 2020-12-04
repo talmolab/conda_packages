@@ -1,0 +1,31 @@
+# Ref: https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html
+
+package:
+  name: tensorflow
+  version: 2.3.1
+
+about:
+  home: https://tensorflow.org
+  license: Apache License
+  summary: TensorFlow 2.3.1.
+
+build:
+  number: 2.3.1
+
+# source:
+#   path: ../
+
+requirements:
+  host:
+    - python=3.6
+    - pip
+
+  run:
+    - python=3.6
+    - pip
+    # - cudatoolkit=10.1
+    # - cudnn=7.6
+
+test:
+  imports:
+    - tensorflow

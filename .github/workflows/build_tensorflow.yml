@@ -1,0 +1,73 @@
+name: Build TensorFlow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build package from release (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # os: ["ubuntu-latest", "windows-latest"]
+        os: ["windows-latest"]
+    steps:
+      # Setup
+      - uses: actions/checkout@v2
+      - name: Cache conda
+        uses: actions/cache@v1
+        env:
+          # Increase this value to reset cache if environment_build.yml has not changed
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.tensorflow.yml', 'requirements.tensorflow.txt') }}
+      - name: Setup Miniconda
+        # https://github.com/conda-incubator/setup-miniconda
+        uses: conda-incubator/setup-miniconda@v2.0.0
+        with:
+          python-version: 3.6
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+          environment-file: environment.tensorflow.yml
+          activate-environment: build_tensorflow
+      - name: Print environment info
+        shell: bash -l {0}
+        run: |
+          which python
+          conda info
+
+      # Build conda package
+      - name: Build conda package (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash -l {0}
+        run: |
+          conda build .conda.tensorflow --output-folder build.tensorflow
+      - name: Build conda package (Windows)
+        if: matrix.os == 'windows-latest'
+        shell: powershell
+        run: |
+          conda activate build_tensorflow
+          conda build .conda.tensorflow --output-folder build.tensorflow
+
+      # Upload conda package
+      - name: Upload to Anaconda (Windows)
+        if: matrix.os == 'windows-latest'
+        env:
+          ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
+        shell: powershell
+        run: |
+          anaconda login --username sleap --password "$env:ANACONDA_LOGIN"
+          anaconda -v upload "build\win-64\*.tar.bz2"
+          anaconda logout
+      - name: Upload to Anaconda (Ubuntu)
+        if: matrix.os == 'ubuntu-latest'
+        env:
+          ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
+        shell: bash -l {0}
+        run: |
+          anaconda login --username sleap --password "$ANACONDA_LOGIN"
+          anaconda -v upload build/linux-64/*.tar.bz2
+          anaconda logout

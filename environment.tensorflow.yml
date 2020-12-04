@@ -1,0 +1,10 @@
+name: build_tensorflow
+
+dependencies:
+- python=3.6
+- conda-build=3.17
+- anaconda-client
+- conda-verify
+- pip
+- pip:
+    - "--requirement=./requirements.tensorflow.txt"
