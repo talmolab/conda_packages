@@ -1,3 +1,9 @@
+# sleap/conda_packages
+
+`sleap/tensorflow`: [![TensorFlow package](https://anaconda.org/sleap/tensorflow/badges/platforms.svg)](https://anaconda.org/sleap/tensorflow)
+
+---
+
 This repository contains conda build recipes and GitHub Actions workflows for building some common pip dependencies.
 
 This serves primarily to support [SLEAP](https://sleap.ai) ([`murthylab/sleap`](https://github.com/murthylab/sleap)) by keeping big dependencies in a separate conda package rather than packaging them with SLEAP every time.
@@ -21,4 +27,4 @@ This can be installed with or without GPU support since TensorFlow will now run 
 
 To enable GPU support, install CUDA Toolkit 10.1 and CuDNN 7.6. You can install these at the system level, or through existing conda packages:
 - [`anaconda/cudatoolkit`](https://anaconda.org/anaconda/cudatoolkit)
-- [`anaconda/cudnn`](https://anaconda.org/anaconda/cudatoolkit)
+- [`anaconda/cudnn`](https://anaconda.org/anaconda/cudnn)
