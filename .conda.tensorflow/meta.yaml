@@ -7,13 +7,14 @@ package:
 about:
   home: https://tensorflow.org
   license: Apache License
-  summary: TensorFlow 2.3.1.
+  summary: 'TensorFlow 2.3.1 conda package based on the PyPI wheels.
+
+  Also includes numpy 1.18.1, h5py 2.10 and opencv-python-headless 4.2.0.34.
+
+  For GPU support, install cudatoolkit 10.1 and cudnn 7.6 which are available as conda packages on the default channel.'
 
 build:
   number: 2.3.1
-
-# source:
-#   path: ../
 
 requirements:
   host:
@@ -29,3 +30,6 @@ requirements:
 test:
   imports:
     - tensorflow
+    - numpy
+    - h5py
+    - cv2
