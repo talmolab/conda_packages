@@ -1,7 +1,7 @@
 # Ref: https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html
 
 package:
-  name: PySide2
+  name: pyside2
   version: 5.14.1
 
 about:
