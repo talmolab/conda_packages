@@ -1,7 +1,8 @@
 # sleap/conda_packages
 
-`sleap/tensorflow`: [![TensorFlow package](https://anaconda.org/sleap/tensorflow/badges/platforms.svg)](https://anaconda.org/sleap/tensorflow)
-<!-- `sleap/PySide2`: [![TensorFlow package](https://anaconda.org/sleap/PySide2/badges/platforms.svg)](https://anaconda.org/sleap/PySide2) -->
+![Build TensorFlow](https://github.com/talmo/conda_packages/workflows/Build%20TensorFlow/badge.svg) [![TensorFlow package](https://anaconda.org/sleap/tensorflow/badges/platforms.svg)](https://anaconda.org/sleap/tensorflow)
+
+![Build PySide2](https://github.com/talmo/conda_packages/workflows/Build%20PySide2/badge.svg) [![TensorFlow package](https://anaconda.org/sleap/pyside2/badges/platforms.svg)](https://anaconda.org/sleap/pyside2)
 
 ---
 
