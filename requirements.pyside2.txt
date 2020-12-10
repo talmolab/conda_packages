@@ -1,1 +1,1 @@
-pip install PySide2==5.14.1
+PySide2==5.14.1
