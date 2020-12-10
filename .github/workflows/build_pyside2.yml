@@ -1,13 +1,13 @@
-name: Build TensorFlow
+name: Build PySide2
 
 on:
   push:
     branches:
       - main
     paths:
-      - '.conda.tensorflow/**'
-      - 'environment.tensorflow.yml'
-      - 'requirements.tensorflow.txt'
+      - '.conda.pyside2/**'
+      - 'environment.pyside2.yml'
+      - 'requirements.pyside2.txt'
 
 jobs:
   build:
@@ -27,15 +27,15 @@ jobs:
           CACHE_NUMBER: 0
         with:
           path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.tensorflow.yml', 'requirements.tensorflow.txt') }}
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.pyside2.yml', 'requirements.pyside2.txt') }}
       - name: Setup Miniconda
         # https://github.com/conda-incubator/setup-miniconda
         uses: conda-incubator/setup-miniconda@v2.0.0
         with:
           python-version: 3.6
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
-          environment-file: environment.tensorflow.yml
-          activate-environment: build_tensorflow
+          environment-file: environment.pyside2.yml
+          activate-environment: build_pyside2
       - name: Print environment info
         shell: bash -l {0}
         run: |
@@ -47,18 +47,18 @@ jobs:
         if: matrix.os == 'windows-2019'
         shell: powershell
         run: |
-          conda activate build_tensorflow
-          conda build .conda.tensorflow --output-folder build.tensorflow
+          conda activate build_pyside2
+          conda build .conda.pyside2 --output-folder build.pyside2
       - name: Build conda package (Ubuntu)
         if: matrix.os == 'ubuntu-18.04'
         shell: bash -l {0}
         run: |
-          conda build .conda.tensorflow --output-folder build.tensorflow
+          conda build .conda.pyside2 --output-folder build.pyside2
       # - name: Build conda package (Mac)
       #   if: matrix.os == 'macos-10.15'
       #   shell: bash -l {0}
       #   run: |
-      #     conda build .conda.tensorflow --output-folder build.tensorflow
+      #     conda build .conda.pyside2 --output-folder build.pyside2
 
       # Upload conda package
       - name: Upload to Anaconda (Windows)
@@ -68,7 +68,7 @@ jobs:
         shell: powershell
         run: |
           anaconda login --username sleap --password "$env:ANACONDA_LOGIN"
-          anaconda -v upload "build.tensorflow\win-64\*.tar.bz2"
+          anaconda -v upload "build.pyside2\win-64\*.tar.bz2"
           anaconda logout
       - name: Upload to Anaconda (Ubuntu)
         if: matrix.os == 'ubuntu-18.04'
@@ -77,7 +77,7 @@ jobs:
         shell: bash -l {0}
         run: |
           anaconda login --username sleap --password "$ANACONDA_LOGIN"
-          anaconda -v upload build.tensorflow/linux-64/*.tar.bz2
+          anaconda -v upload build.pyside2/linux-64/*.tar.bz2
           anaconda logout
       # - name: Upload to Anaconda (Mac)
       #   if: matrix.os == 'macos-10.15'
@@ -86,5 +86,5 @@ jobs:
       #   shell: bash -l {0}
       #   run: |
       #     anaconda login --username sleap --password "$ANACONDA_LOGIN"
-      #     anaconda -v upload build.tensorflow/osx-64/*.tar.bz2
+      #     anaconda -v upload build.pyside2/osx-64/*.tar.bz2
       #     anaconda logout

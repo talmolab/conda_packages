@@ -1,0 +1,35 @@
+# Ref: https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html
+
+package:
+  name: PySide2
+  version: 5.14.1
+
+about:
+  home: https://tensorflow.org
+  license: Apache License
+  summary: 'PySide2 5.14.1 conda package based on the PyPI wheels.'
+
+build:
+  number: 5.14.1.build0
+
+requirements:
+  build:
+    - '{{ compiler("c") }}'
+    - '{{ compiler("cxx") }}'
+
+  host:
+    - python=3.6
+    - pip
+
+  run:
+    - python=3.6
+    - Pillow
+    - Shapely
+    - pip
+
+  run_constrained:
+    - pyqt==9999999999
+
+test:
+  imports:
+    - PySide2

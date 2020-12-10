@@ -1,6 +1,7 @@
 # sleap/conda_packages
 
 `sleap/tensorflow`: [![TensorFlow package](https://anaconda.org/sleap/tensorflow/badges/platforms.svg)](https://anaconda.org/sleap/tensorflow)
+<!-- `sleap/PySide2`: [![TensorFlow package](https://anaconda.org/sleap/PySide2/badges/platforms.svg)](https://anaconda.org/sleap/PySide2) -->
 
 ---
 
