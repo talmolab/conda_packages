@@ -10,7 +10,7 @@ about:
   summary: 'PySide2 5.14.1 conda package based on the PyPI wheels.'
 
 build:
-  number: 5.14.1.build0
+  number: 5.14.1.build1
 
 requirements:
   build:
