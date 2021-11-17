@@ -16,8 +16,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # os: ["ubuntu-18.04", "windows-2019", "macos-10.15"]
-        os: ["ubuntu-18.04", "windows-2019"]
+        # os: ["ubuntu-20.04", "windows-2019", "macos-10.15"]
+        os: ["ubuntu-20.04", "windows-2019"]
     steps:
       # Setup
       - uses: actions/checkout@v2
@@ -33,7 +33,7 @@ jobs:
         # https://github.com/conda-incubator/setup-miniconda
         uses: conda-incubator/setup-miniconda@v2.0.0
         with:
-          python-version: 3.6
+          python-version: 3.7
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
           environment-file: environment.tensorflow.yml
           activate-environment: build_tensorflow
@@ -51,7 +51,7 @@ jobs:
           conda activate build_tensorflow
           conda build .conda.tensorflow --output-folder build.tensorflow
       - name: Build conda package (Ubuntu)
-        if: matrix.os == 'ubuntu-18.04'
+        if: matrix.os == 'ubuntu-20.04'
         shell: bash -l {0}
         run: |
           conda build .conda.tensorflow --output-folder build.tensorflow
@@ -72,7 +72,7 @@ jobs:
           anaconda -v upload "build.tensorflow\win-64\*.tar.bz2"
           anaconda logout
       - name: Upload to Anaconda (Ubuntu)
-        if: matrix.os == 'ubuntu-18.04'
+        if: matrix.os == 'ubuntu-20.04'
         env:
           ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
         shell: bash -l {0}
