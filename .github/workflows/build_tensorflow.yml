@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - '.github/workflows/build_tensorflow.yml'
       - '.conda.tensorflow/**'
       - 'environment.tensorflow.yml'
       - 'requirements.tensorflow.txt'

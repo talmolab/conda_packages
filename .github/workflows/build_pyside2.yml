@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - '.github/workflows/build_pyside2.yml'
       - '.conda.pyside2/**'
       - 'environment.pyside2.yml'
       - 'requirements.pyside2.txt'
