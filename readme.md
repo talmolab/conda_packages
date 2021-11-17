@@ -2,7 +2,7 @@
 
 ![Build TensorFlow](https://github.com/talmo/conda_packages/workflows/Build%20TensorFlow/badge.svg) [![TensorFlow package](https://anaconda.org/sleap/tensorflow/badges/platforms.svg)](https://anaconda.org/sleap/tensorflow)
 
-![Build PySide2](https://github.com/talmo/conda_packages/workflows/Build%20PySide2/badge.svg) [![TensorFlow package](https://anaconda.org/sleap/pyside2/badges/platforms.svg)](https://anaconda.org/sleap/pyside2)
+![Build PySide2](https://github.com/talmo/conda_packages/workflows/Build%20PySide2/badge.svg) [![PySide2 package](https://anaconda.org/sleap/pyside2/badges/platforms.svg)](https://anaconda.org/sleap/pyside2)
 
 ---
 
@@ -30,3 +30,14 @@ This can be installed with or without GPU support since TensorFlow will now run 
 To enable GPU support, install CUDA Toolkit 11.3.1 and CuDNN 8.2.1. You can install these at the system level, or through existing conda packages:
 - [`anaconda/cudatoolkit`](https://anaconda.org/anaconda/cudatoolkit)
 - [`anaconda/cudnn`](https://anaconda.org/anaconda/cudnn)
+
+
+For PySide2 5.14.1, install using:
+
+`conda install -c sleap pyside2=5.14.1`
+
+or by adding this to your `environment.yml` dependencies:
+
+`sleap::pyside2=5.14.1`
+
+**Note**: Packages are built for Python 3.7.

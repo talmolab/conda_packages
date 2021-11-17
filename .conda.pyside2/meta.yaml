@@ -2,15 +2,15 @@
 
 package:
   name: pyside2
-  version: 5.15.2
+  version: 5.14.1
 
 about:
   home: https://tensorflow.org
   license: Apache License
-  summary: 'PySide2 5.15.2 conda package based on the PyPI wheels.'
+  summary: 'PySide2 5.14.1 conda package based on the PyPI wheels.'
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
