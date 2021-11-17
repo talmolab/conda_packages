@@ -22,7 +22,7 @@ The `sleap/tensorflow` package includes the following libraries packaged from pi
 - `numpy==1.19.5`
 - `tensorflow==2.7.0`
 - `tensorboard==2.7.0`
-- `h5py==3.10.0`
+- `h5py==3.1.0`
 - `opencv-python-headless==4.2.0.34`
 
 This can be installed with or without GPU support since TensorFlow will now run in CPU mode if the CUDA drivers are not detected.
