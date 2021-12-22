@@ -9,12 +9,12 @@ about:
   license: Apache License
   summary: 'TensorFlow 2.7.0 conda package based on the PyPI wheels.
 
-  Also includes numpy 1.18.1, h5py 3.1.0 and opencv-python-headless 4.2.0.34.
+  Also includes numpy 1.19.5, h5py 3.1.0 and opencv-python-headless 4.2.0.34.
 
   For GPU support, install cudatoolkit 11.3.1 and cudnn 8.2.1 which are available as conda packages on the default channel.'
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
