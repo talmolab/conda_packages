@@ -2,19 +2,19 @@
 
 package:
   name: tensorflow
-  version: 2.7.0
+  version: 2.6.3
 
 about:
   home: https://tensorflow.org
   license: Apache License
-  summary: 'TensorFlow 2.7.0 conda package based on the PyPI wheels.
+  summary: 'TensorFlow conda package based on the PyPI wheels.
 
-  Also includes numpy 1.19.5, h5py 3.1.0 and opencv-python-headless 4.2.0.34.
+  Also includes numpy and opencv-python-headless.
 
   For GPU support, install cudatoolkit 11.3.1 and cudnn 8.2.1 which are available as conda packages on the default channel.'
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
@@ -23,10 +23,18 @@ requirements:
 
   host:
     - python=3.7
+    - conda-forge::numpy=1.21.5
+    - conda-forge::pyside2=5.13.2
+    - conda-forge::h5py=3.6.0
+    - conda-forge::scipy=1.7.3
     - pip
 
   run:
     - python=3.7
+    - conda-forge::numpy>=1.19.5,<=1.21.5
+    - conda-forge::pyside2>=5.13.2,<=5.14.1
+    - conda-forge::h5py>=3.1.0,<=3.6.0
+    - conda-forge::scipy>=1.4.1,<=1.7.3
     - pip
 
 test:
