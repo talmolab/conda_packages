@@ -50,12 +50,12 @@ jobs:
         shell: powershell
         run: |
           conda activate build_tensorflow
-          conda build .conda.tensorflow --output-folder build.tensorflow
+          conda build .conda.tensorflow --output-folder build.tensorflow -c conda-forge
       - name: Build conda package (Ubuntu)
         if: matrix.os == 'ubuntu-20.04'
         shell: bash -l {0}
         run: |
-          conda build .conda.tensorflow --output-folder build.tensorflow
+          conda build .conda.tensorflow --output-folder build.tensorflow -c conda-forge
       # - name: Build conda package (Mac)
       #   if: matrix.os == 'macos-10.15'
       #   shell: bash -l {0}
