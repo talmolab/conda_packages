@@ -4,7 +4,7 @@ export PIP_NO_INDEX=False
 export PIP_NO_DEPENDENCIES=False
 export PIP_IGNORE_INSTALLED=False
 
-pip install numpy==1.21.5
+# pip install numpy==1.21.5
 # pip install numpy==1.19.5
 pip install tensorflow==2.6.3
 pip install tensorboard==2.6.0
