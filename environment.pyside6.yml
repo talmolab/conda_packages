@@ -1,0 +1,10 @@
+name: build_pyside6
+
+dependencies:
+- python=3.7
+- conda-build
+- anaconda-client
+- conda-verify
+- pip
+- pip:
+    - "--requirement=./requirements.pyside6.txt"

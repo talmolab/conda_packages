@@ -1,0 +1,35 @@
+# Ref: https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html
+
+package:
+  name: pyside6
+  version: 6.2.2.1
+
+about:
+  home: https://doc.qt.io/qtforpython/
+  license: LGPLv3/GPLv3
+  summary: 'PySide6 6.2.2.1 conda package based on the PyPI wheels.'
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - '{{ compiler("c") }}'
+    - '{{ compiler("cxx") }}'
+
+  host:
+    - python=3.7
+    - pip
+
+  run:
+    - python=3.7
+    - pillow
+    - shapely
+    - pip
+
+  run_constrained:
+    - pyqt==9999999999
+
+test:
+  imports:
+    - PySide6
