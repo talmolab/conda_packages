@@ -13,4 +13,4 @@ rem pip install opencv-python-headless==4.5.5.62
 rem pip install git+https://github.com/talmolab/wrap_opencv-python-headless.git@ede49f6a23a73033216339f29515e59d594ba921
 rem pip install setuptools-scm
 
-pip install --no-cache-dir -r .\requirements.txt
+pip install --no-cache-dir -r .\requirements.tensorflow.txt
