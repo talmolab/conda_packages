@@ -25,16 +25,10 @@ requirements:
   host:
     - python=3.7
     - pip
-    # - conda-forge::numpy=1.19.5
-    # - conda-forge::h5py=3.1.0
-    # - conda-forge::scipy=1.7.3
 
   run:
     - python=3.7
     - pip
-    # - conda-forge::numpy~=1.19.5
-    # - conda-forge::h5py~=3.1.0
-    # - conda-forge::scipy>=1.4.1,<=1.7.3
 
 test:
   imports:
