@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         # os: ["ubuntu-20.04", "windows-2019", "macos-10.15"]
-        os: ["ubuntu-20.04", "windows-2019"]
+        os: ["ubuntu-22.04", "windows-2022"]
     steps:
       # Setup
       - uses: actions/checkout@v2
@@ -46,13 +46,13 @@ jobs:
 
       # Build conda package
       - name: Build conda package (Windows)
-        if: matrix.os == 'windows-latest'
+        if: matrix.os == 'windows-2022'
         shell: powershell
         run: |
           conda activate build_tensorflow
           conda build .conda.tensorflow --output-folder build.tensorflow -c conda-forge
       - name: Build conda package (Ubuntu)
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'ubuntu-22.04'
         shell: bash -l {0}
         run: |
           conda build .conda.tensorflow --output-folder build.tensorflow -c conda-forge
@@ -64,7 +64,7 @@ jobs:
 
       # Upload conda package
       - name: Upload to Anaconda (Windows)
-        if: matrix.os == 'windows-2019'
+        if: matrix.os == 'windows-2022'
         env:
           ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
         shell: powershell
@@ -73,7 +73,7 @@ jobs:
           anaconda -v upload "build.tensorflow\win-64\*.tar.bz2"
           anaconda logout
       - name: Upload to Anaconda (Ubuntu)
-        if: matrix.os == 'ubuntu-20.04'
+        if: matrix.os == 'ubuntu-22.04'
         env:
           ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
         shell: bash -l {0}
