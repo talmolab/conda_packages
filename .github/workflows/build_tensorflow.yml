@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - elizabeth/Change-Tensorflow-version
     paths:
       - '.github/workflows/build_tensorflow.yml'
       - '.conda.tensorflow/**'
