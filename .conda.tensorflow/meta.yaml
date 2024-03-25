@@ -2,7 +2,7 @@
 
 package:
   name: tensorflow
-  version: 2.10.1
+  version: 2.9.3
 
 about:
   home: https://tensorflow.org
