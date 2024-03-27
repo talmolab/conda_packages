@@ -1,2 +1,2 @@
 # tensorflow==2.10.1  # https://github.com/talmolab/sleap/issues/1721
-tensorflow==2.8.4 # server overloaded, need to push again
+tensorflow==2.8.4 # I don't see windows version on anaconda, pushing again
