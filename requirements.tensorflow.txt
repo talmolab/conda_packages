@@ -1,3 +1,2 @@
 # tensorflow==2.10.1  # https://github.com/talmolab/sleap/issues/1721
-# tensorflow==2.9.3
 tensorflow==2.8.4
