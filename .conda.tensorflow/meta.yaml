@@ -24,10 +24,14 @@ requirements:
 
   host:
     - python=3.7
+    - numpy
+    - h5py
     - pip
 
   run:
     - python=3.7
+    - numpy
+    - h5py
     - pip
 
 test:
