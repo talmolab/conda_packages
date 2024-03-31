@@ -2,7 +2,7 @@
 
 package:
   name: tensorflow
-  version: 2.7.4
+  version: 2.7.0
 
 about:
   home: https://tensorflow.org
@@ -12,7 +12,7 @@ about:
   For GPU support, install cudatoolkit 11.3.1 and cudnn 8.2.1 which are available as conda packages on the default channel.'
 
 build:
-  number: 1
+  number: 2
 
 source:
   path: ../
