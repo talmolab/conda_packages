@@ -12,7 +12,7 @@ about:
   For GPU support, install cudatoolkit 11.3.1 and cudnn 8.2.1 which are available as conda packages on the default channel.'
 
 build:
-  number: 2
+  number: 4
 
 source:
   path: ../
