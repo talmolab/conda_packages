@@ -17,7 +17,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # os: ["ubuntu-20.04", "windows-2019", "macos-10.15"]
         os: ["ubuntu-22.04", "windows-2022"]
     steps:
       # Setup
@@ -56,11 +55,6 @@ jobs:
         shell: bash -l {0}
         run: |
           conda build .conda.tensorflow --output-folder build.tensorflow -c conda-forge
-      # - name: Build conda package (Mac)
-      #   if: matrix.os == 'macos-10.15'
-      #   shell: bash -l {0}
-      #   run: |
-      #     conda build .conda.tensorflow --output-folder build.tensorflow
 
       # Upload conda package
       - name: Upload to Anaconda (Windows)
@@ -70,7 +64,7 @@ jobs:
         shell: powershell
         run: |
           anaconda login --username sleap --password "$env:ANACONDA_LOGIN"
-          anaconda -v upload "build.tensorflow\win-64\*.tar.bz2"
+          anaconda -v upload "build.tensorflow\win-64\*.tar.bz2" --label dev
           anaconda logout
       - name: Upload to Anaconda (Ubuntu)
         if: matrix.os == 'ubuntu-22.04'
@@ -79,14 +73,5 @@ jobs:
         shell: bash -l {0}
         run: |
           anaconda login --username sleap --password "$ANACONDA_LOGIN"
-          anaconda -v upload build.tensorflow/linux-64/*.tar.bz2
+          anaconda -v upload build.tensorflow/linux-64/*.tar.bz2 --label dev
           anaconda logout
-      # - name: Upload to Anaconda (Mac)
-      #   if: matrix.os == 'macos-10.15'
-      #   env:
-      #     ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
-      #   shell: bash -l {0}
-      #   run: |
-      #     anaconda login --username sleap --password "$ANACONDA_LOGIN"
-      #     anaconda -v upload build.tensorflow/osx-64/*.tar.bz2
-      #     anaconda logout

@@ -2,7 +2,7 @@
 
 package:
   name: tensorflow
-  version: 2.10.1
+  version: 2.7.0
 
 about:
   home: https://tensorflow.org
@@ -12,7 +12,7 @@ about:
   For GPU support, install cudatoolkit 11.3.1 and cudnn 8.2.1 which are available as conda packages on the default channel.'
 
 build:
-  number: 1
+  number: 4
 
 source:
   path: ../
@@ -24,10 +24,26 @@ requirements:
 
   host:
     - python=3.7
+    - numpy
+    - h5py
+    - protobuf # 3.20.3 is what pip pulls in
+    - certifi # 2024.2.28 is what pip pulls in
+    - importlib-metadata # 6.7.0 is what pip pulls in
+    - six # 1.16.0 is what pip pulls in
+    - typing-extensions # 4.7.1 is what pip pulls in
+    - zipp # 3.15.0 is what pip pulls in
     - pip
 
   run:
     - python=3.7
+    - numpy
+    - h5py
+    - protobuf
+    - certifi
+    - importlib-metadata
+    - six
+    - typing-extensions
+    - zipp
     - pip
 
 test:
