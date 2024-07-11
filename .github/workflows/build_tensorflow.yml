@@ -56,22 +56,22 @@ jobs:
         run: |
           conda build .conda.tensorflow --output-folder build.tensorflow -c conda-forge
 
-      # Upload conda package
-      - name: Upload to Anaconda (Windows)
-        if: matrix.os == 'windows-2022'
-        env:
-          ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
-        shell: powershell
-        run: |
-          anaconda login --username sleap --password "$env:ANACONDA_LOGIN"
-          anaconda -v upload "build.tensorflow\win-64\*.tar.bz2" --label dev
-          anaconda logout
-      - name: Upload to Anaconda (Ubuntu)
-        if: matrix.os == 'ubuntu-22.04'
-        env:
-          ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
-        shell: bash -l {0}
-        run: |
-          anaconda login --username sleap --password "$ANACONDA_LOGIN"
-          anaconda -v upload build.tensorflow/linux-64/*.tar.bz2 --label dev
-          anaconda logout
+      # # Upload conda package
+      # - name: Upload to Anaconda (Windows)
+      #   if: matrix.os == 'windows-2022'
+      #   env:
+      #     ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
+      #   shell: powershell
+      #   run: |
+      #     anaconda login --username sleap --password "$env:ANACONDA_LOGIN"
+      #     anaconda -v upload "build.tensorflow\win-64\*.tar.bz2" --label dev
+      #     anaconda logout
+      # - name: Upload to Anaconda (Ubuntu)
+      #   if: matrix.os == 'ubuntu-22.04'
+      #   env:
+      #     ANACONDA_LOGIN: ${{ secrets.ANACONDA_LOGIN }}
+      #   shell: bash -l {0}
+      #   run: |
+      #     anaconda login --username sleap --password "$ANACONDA_LOGIN"
+      #     anaconda -v upload build.tensorflow/linux-64/*.tar.bz2 --label dev
+      #     anaconda logout
