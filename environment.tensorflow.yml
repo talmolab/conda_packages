@@ -1,7 +1,12 @@
-name: build_tensorflow
+name: build
+
+channels:
+  - conda-forge
+  - anaconda
 
 dependencies:
-- python=3.7
+# - python=3.7
+# - conda-forge::python >=3.9.0,<3.10.0 # Trying python 3.9
 - conda-build
 - anaconda-client
 - conda-verify
@@ -11,4 +16,4 @@ dependencies:
 # - conda-forge::scipy=1.7.3
 - pip
 - pip:
-    - "--requirement=./requirements.tensorflow.txt"
+    # - "--requirement=./requirements.tensorflow.txt"

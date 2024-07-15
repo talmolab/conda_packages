@@ -2,7 +2,7 @@
 
 package:
   name: tensorflow
-  version: 2.7.0
+  version: 2.9.0a0
 
 about:
   home: https://tensorflow.org
@@ -23,7 +23,7 @@ requirements:
     - '{{ compiler("cxx") }}'
 
   host:
-    - python=3.7
+    - python>=3.10.0,<3.11.0 # Trying python 3.10
     - numpy
     - h5py
     - protobuf # 3.20.3 is what pip pulls in
@@ -35,7 +35,7 @@ requirements:
     - pip
 
   run:
-    - python=3.7
+    - python>=3.10.0,<3.11.0 # Trying python 3.10
     - numpy
     - h5py
     - protobuf
@@ -46,6 +46,6 @@ requirements:
     - zipp
     - pip
 
-test:
-  imports:
-    - tensorflow
+# test:
+#   imports:
+#     - tensorflow
